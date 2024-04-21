@@ -108,9 +108,7 @@ function App() {
     });
   };
 
-  if(isLoading){
-    return <div>데이터 로딩중입니다 ...</div>
-  }
+  
 
   return (
     <>
