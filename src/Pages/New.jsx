@@ -11,16 +11,31 @@ import useTitle from "../hooks/useTitle";
 const New = () => {
   const { onCreate } = useContext(DiaryDispatchContext);
   const nav = useNavigate();
-  useTitle("새 일기 쓰기");
+  useTitle("운동 일지");
 
   const onSubmit = (input) => {
     onCreate(input.createdDate.getTime(), input.emotionId, input.content);
     nav("/", { replace: true });
   };
+  const styles = {
+    backgroundColor: "#b2b2b2",
+    maxWidth: "600px",
+    width: "100%",
+    margin: "0 auto",
+    minHeight: "50%",
+    height: "100%",
+    boxShadow: "rgba(100, 100, 100, 0, 2) 0px 0px 29px 0px",
+    padding: "0px 20px",
+    borderRadius: "20px",
+    position: "absolute",
+    top: "40%",
+    left: "50%",
+    transform: "translate(-50%, -40%)",
+  };
 
   return (
-    <div>
-      <Header title={"새 일기 쓰기"} leftChild={<Button onClick={() => nav(-1)} text={"< 뒤로 가기"} />} />
+    <div className="new_container" style={styles}>
+      <Header title={"운동 일지"} leftChild={<Button onClick={() => nav("/")} text={"< 뒤로 가기"} />} />
       <Editor onSubmit={onSubmit} />
     </div>
   );

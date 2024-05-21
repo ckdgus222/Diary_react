@@ -1,27 +1,24 @@
 // img 모듈화
-// import emotion 이미지 불러오기
 
-import emotion1 from "./../assets/emotion1.png";
-import emotion2 from "./../assets/emotion2.png";
-import emotion3 from "./../assets/emotion3.png";
-import emotion4 from "./../assets/emotion4.png";
-import emotion5 from "./../assets/emotion5.png";
+import back from "./../assets/back.png";
+import chest from "./../assets/chest.png";
+import leg from "./../assets/leg.png";
+import shoulder from "./../assets/shoulder.png";
+import arm from "./../assets/arm.png";
 
-// emotion 이미지 id 매개변수로 받고
-// switch 를 사용해서 case 조건으로 이미지 반환
 // export 내보내기
-export function getEmotionImage(emotionId) {
-  switch (emotionId) {
+export function getEmotionImage(part) {
+  switch (part) {
     case 1:
-      return emotion1;
+      return back;
     case 2:
-      return emotion2;
+      return chest;
     case 3:
-      return emotion3;
+      return leg;
     case 4:
-      return emotion4;
+      return shoulder;
     case 5:
-      return emotion5;
+      return arm;
     default:
       return null;
   }

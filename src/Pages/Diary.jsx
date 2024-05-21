@@ -11,7 +11,7 @@ const Diary = () => {
   // diary/ 동적경로 값이 들어간 파라미터
   const params = useParams();
   const nav = useNavigate();
-  useTitle(`${params.id}번 일기`)
+  useTitle(`${params.id}번 운동일지`);
 
   const curDiaryItem = useDiary(params.id);
 
@@ -21,9 +21,23 @@ const Diary = () => {
 
   const { createDate, emotionId, content } = curDiaryItem;
   const title = getStringedDate(new Date(createDate));
+  const styles = {
+    backgroundColor: "#b2b2b2",
+    maxWidth: "600px",
+    width: "100%",
+    margin: "0 auto",
+    minHeight: "50%",
+    boxShadow: "rgba(100, 100, 100, 0, 2) 0px 0px 29px 0px",
+    padding: "0px 20px",
+    borderRadius: "20px",
+    position: "absolute",
+    top: "40%",
+    left: "50%",
+    transform: "translate(-50%, -40%)",
+  };
 
   return (
-    <div>
+    <div style={styles}>
       <Header
         title={`${title} 기록`}
         leftChild={<Button onClick={() => nav(-1)} text={"<뒤로 가기"} />}

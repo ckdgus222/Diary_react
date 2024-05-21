@@ -34,7 +34,7 @@ const DiaryList = ({ data }) => {
           <option value={"latest"}>최신순</option> {/* state에 값을 저장할때 편리하게 작업하기위해 값은 영어로 */}
           <option value={"oldest"}>오래된 순</option>
         </select>
-        <Button onClick={() => nav("/new")} text={"새 일기 쓰기"} type={"POSITIVE"} /> {/* 버튼 컴포넌트 */}
+        <Button onClick={() => nav("/new")} text={"운동 일지 작성"} type={"POSITIVE"} /> {/* 버튼 컴포넌트 */}
       </div>
       <div className="list_wrapper">
         {/* 반복할 list 컴포넌트  */}

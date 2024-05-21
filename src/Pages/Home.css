@@ -1,0 +1,12 @@
+.home_container{
+  -ms-overflow-style: none; /* 인터넷 익스플로러 */
+  scrollbar-width: none;
+}
+.home_container::-webkit-scrollbar{
+  display: none;
+}
+.main_title > h4 {
+  font-size: 30px;
+  text-align: center;
+  margin: 20px 0px 20px 0px;
+}

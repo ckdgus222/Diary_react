@@ -33,7 +33,7 @@ function reducer(state, action) {
     default:
       return state;
   }
-  localStorage.setItem("diary", JSON.stringify(nextState));
+  localStorage.setItem("workOut", JSON.stringify(nextState));
   return nextState;
 }
 export const DiaryStateContext = createContext();
@@ -49,7 +49,7 @@ function App() {
   const idRef = useRef(0);
 
   useEffect(() => {
-    const storedDate = localStorage.getItem("diary");
+    const storedDate = localStorage.getItem("workOut");
     if (!storedDate) {
       return;
     }
@@ -74,7 +74,6 @@ function App() {
     setIsLoading(false);
   }, []);
 
-  // 새로운 일기 추가
   const onCreate = (createDate, emotionId, content) => {
     dispatch({
       type: "CREATE",
@@ -87,7 +86,6 @@ function App() {
     });
   };
 
-  // 기존 일기 수정
   // 현재 수정하려는 id값 까지 추가
   const onUpdate = (id, createDate, emotionId, content) => {
     dispatch({
@@ -107,8 +105,6 @@ function App() {
       id,
     });
   };
-
-  
 
   return (
     <>

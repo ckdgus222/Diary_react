@@ -1,26 +1,23 @@
 import "./Editor.css";
 import EmotionItem from "./EmotionItem";
 import Button from "./Button";
+import { stretching } from "../util/stretching";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { emotionList } from "../util/constants"
+import { emotionList } from "../util/constants";
 import { getStringedDate } from "../util/getStringedDate";
 
-
-
-
-
-
 const Editor = ({ initData, onSubmit }) => {
+  const [clickBtn, setClickBtn] = useState("");
   const nav = useNavigate();
   const [input, setInput] = useState({
-    // 날짜, 아이디 , 컨텐츠 상태값 각 컴포넌트
     createdDate: new Date(),
     emotionId: 3,
     content: "",
   });
-
-   // 
+  console.log(stretching(clickBtn))
+ 
+  //
   useEffect(() => {
     if (initData) {
       setInput({
@@ -57,20 +54,21 @@ const Editor = ({ initData, onSubmit }) => {
         <input name="createdDate" onChange={DateChange} value={getStringedDate(input.createdDate)} type="date" />
       </section>
       <section className="emotion_section">
-        <h4>오늘의 감정</h4>
+        <h4>운동 부위</h4>
         <div className="emotion_list_wrapper">
           {/* isSelected props로 감정 배경 클릭  */}
           {/* 컴포넌트에 수동 이벤트 객체 전달 */}
           {emotionList.map((item, i) => (
             <EmotionItem
-              onClick={() =>
+              onClick={() => {
                 DateChange({
                   target: {
                     name: "emotionId",
                     value: item.emotionId,
                   },
-                })
-              }
+                });
+                setClickBtn(item.emotionName); // 별도의 호출로 분리
+              }}
               key={i}
               {...item}
               isSelected={item.emotionId === input.emotionId}
@@ -79,12 +77,24 @@ const Editor = ({ initData, onSubmit }) => {
         </div>
       </section>
       <section className="content_section">
-        <h4>오늘의 일기</h4>
-        <textarea onChange={DateChange} name="content" value={input.content} placeholder="오늘은 어땠나요?"></textarea>
+        <h4>운동 기록</h4>
+        <textarea onChange={DateChange} name="content" value={input.content} placeholder="오늘의 운동 일지 작성"></textarea>
       </section>
       <section className="button_section">
         <Button onClick={() => nav(-1)} text={"취소하기"} />
         <Button onClick={onClickSubmitButton} text={"작성완료"} type={"POSITIVE"} />
+      </section>
+      <section className="video_section">
+        <iframe
+          width="100%"
+          height="100%"
+          src={stretching(clickBtn)}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        />
       </section>
     </div>
   );

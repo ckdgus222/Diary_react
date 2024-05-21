@@ -13,7 +13,7 @@ const useDiary = (id) => {
 
     if (!diaryItem) {
       // 유저가 주소 파라미터 입력값에 아이템에 없는 값을 입력했을때 ! not 연산자로 false 가 들어오면 true 로 바꿔서 실행
-      window.alert("존재하지 않는 일기입니다.");
+      window.alert("존재하지 않는 운동 일지입니다.");
       nav("/", { replace: true }); // 페이지 다시 Home 으로 돌려주고 Navigate 함수 replace 값을 true 로 뒤로 페이지를 못가게 막고
     }
 
