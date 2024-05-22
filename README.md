@@ -1,4 +1,4 @@
-# 운동 기록 일지
+# :smiley: 운동 기록 일지
 
 
 <img width="1500" alt="스크린샷 2024-05-22 오후 1 50 29" src="https://github.com/ckdgus222/Diary_react/assets/114120454/8b555120-83fb-41e9-9df1-b360326b7973">
