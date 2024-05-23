@@ -15,6 +15,7 @@
 # :wrench: Tech
 
 * React
+* React Router
 * Vite
 * Locel Storage
 
