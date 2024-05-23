@@ -9,7 +9,7 @@ body {
   width: 100%;
   background-color: rgb(246, 246, 246);
   display: flex;
-  background-image: url("/public/gym-with-indoor-cycling-equipment.png");
+  background-image: url("/public/main_back.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
